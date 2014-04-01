@@ -10,3 +10,10 @@
 .clear {
   clear: left;
 }
+a {
+	color: #428bca;
+}
+.navbar {
+background-color: #f8f8f8;
+border-color: #e7e7e7;
+}

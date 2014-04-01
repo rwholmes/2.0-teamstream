@@ -1,4 +1,70 @@
+<!-- Main -->
+<div class="container">
 <div class="row">
+  <div class="col-md-3">
+      <!-- Left column -->
+      <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Pick Teams</strong></a>  
+      <hr>
+      <ul class="list-unstyled">
+        <li>
+          <ul class="list-unstyled collapse in" id="userMenu" ng-controller="myTeamsController">
+              <li ng-repeat="team in teams" ng-click="submit(team)" ><a href="#">{{ team.name }} <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /col-3 -->
+    <div class="col-md-9">
+        
+      <!-- column 2 --> 
+      <ul class="list-inline pull-right">
+         <li><a href="#"><i class="glyphicon glyphicon-cog"></i></a></li>
+      </ul>
+      <a href="#"><strong><i class="glyphicon glyphicon-dashboard"></i> My Dashboard</strong></a>  
+        <hr>
+    <div class="row">
+            <!-- center left--> 
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>My Teams</h4></div>
+              <div class="panel-body" ng-controller='teamAppController'>
+                <ul class="list-unstyled">
+                  <li class="teams" ng-repeat="team in teams track by $index">
+                    <a href='#'>{{ team.teamname }}</a>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-default btn-sm" ng-click="remove()">Reset Teams</button>
+              </div>
+            </div>
+          </div><!--/col-span-6-->
+          
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>Scores</h4></div>
+                <div class="panel-body">
+               
+                </div>
+            </div>
+          </div><!--/col-span-6-->
+        </div><!--/row-->
+      <a href="#"><strong><i class="glyphicon glyphicon-comment"></i> Headlines</strong></a>  
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group" ng-controller="myHeadlinesController">
+            <li class="list-group-item" ng-repeat="headline in headlines"><a href="{{ headline.links.web.href }}"><i class="glyphicon glyphicon-flash"></i> <small>(3 mins ago)</small> {{ headline.headline }}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div><!--/col-span-9-->
+</div>
+</div>
+<!-- /Main -->
+
+
+
+<!---------- SEPARATION ------------>
+
+<!-- <div class="row">
   <div id="Teams" class="col-xs-8 col-md-8" ng-controller="myTeamsController">
     <h4>Choose Teams</h4>
     <ul class="list-unstyled multi-col-list">
@@ -7,8 +73,8 @@
       </li>
     </ul>
     <div class="clear"></div>
-  </div>
-
+  </div> -->
+<!-- 
   <div id="myTeams" class="col-xs-4 col-md-4" ng-controller='teamAppController'>
     <h4>Your Teams</h4>
     <ul class="list-unstyled">
@@ -19,15 +85,15 @@
     <button type="button" class="btn btn-default btn-sm" ng-click="remove()">Reset Teams</button>
   </div>
 </div>
-
-<div id="headlines" class="marketing" ng-controller="myHeadlinesController">
+ -->
+<!-- <div id="headlines" class="marketing" ng-controller="myHeadlinesController">
   <h4>Headlines</h4>
   <ul class="list-unstyled">
     <li class="headlines" ng-repeat="headline in headlines">
       <a href='{{ headline.links.web.href }}'>{{ headline.headline }}</a>
     </li>
   </ul>
-</div>
+</div> -->
 
 <!-- <h4>Scores</h4>
 <div id="scores" class="row" ng-controller="myScoresController">
@@ -58,7 +124,7 @@
 </div> -->
 
 
-<h4>Upcoming Matches</h4>
+<!-- <h4>Upcoming Matches</h4>
 <div id="scores" class="row" ng-controller="myScoresController">
   <div class="score-box col-xs-3 col-md-3" ng-repeat="team in userTeams">
     <table class="table table-striped table-condensed">
@@ -82,18 +148,11 @@
     </tr>
     </table>
   </div>
-</div>
-
-<div class="footer row">
-  <div class="col-xs-8 col-md-9">
+</div> -->
+<!-- 
+<div class="footer row container">
+  <div class="col-xs-12 col-md-12">
     <p><span class="glyphicon glyphicon-heart"></span> built by Robert Holmes</p>
   </div>
-  <div class="col-xs-4 col-md-3">
-    <button type="button" class="btn btn-default btn-md">
-      <span class="glyphicon glyphicon-ok"></span> Login
-    </button>
-    <button type="button" class="btn btn-default btn-md">
-      <span class="glyphicon glyphicon-remove"></span> Logout
-    </button>
-  </div>
 </div>
+ -->
