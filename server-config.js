@@ -16,6 +16,8 @@ app.configure(function() {
   app.use(express.session());
 });
 
+app.post('/removeTeams', handler.removeTeams);
+
 app.get('/', handler.renderIndex);
 app.get('/create', handler.renderIndex);
 

@@ -49,10 +49,19 @@ app.controller('appController', function($scope, linkServices) {
   });
 });
 
-app.controller('teamAppController', function($scope, linkServices) {
+app.controller('teamAppController', function($scope, $http, linkServices) {
   var teams = linkServices.getTeams().then(function(data) {
     $scope.teams = data;
   });
+
+  $scope.remove = function() {
+    console.log('trying to remove ang-shortly');
+    $http({
+      method: 'POST',
+      url: '/removeTeams',
+      data: {}
+    });
+  };
 });
 
 app.controller('Ctrl', function($scope, $http) {
@@ -146,19 +155,6 @@ app.controller('myTeamsController', function($scope, $rootScope, $http, dataServ
       url: '/teams',
       data: {teamname: team.name, teamId: team.id}
     });
-  };
-
-  $scope.addToTeams = function(team) {
-    if (!$rootScope.teamTracker[team.name]) {
-      $rootScope.userTeams.push({teamName: team.name, teamId: team.id});
-      $rootScope.teamTracker[team.name] = true;
-    } else {
-      console.log('team already exists');
-    }
-  };
-
-  $scope.removeTeam = function(team) {
-    console.log('trying to remove team');
   };
 });
 

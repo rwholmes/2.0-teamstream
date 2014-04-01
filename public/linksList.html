@@ -1,30 +1,3 @@
-<form ng-submit='submit()' ng-controller='CtrlTEAMS'>
-    <input class='text' ng-model='userTeam' type='text' name='url'>
-    <input type='submit' value='AddTeam'>
-</form>
-
-<div ng-controller='teamAppController' id='container'>
-  <div class='link' ng-repeat='team in teams'>
-    <div class='info'>
-      <div class='title'>{{team.teamname}}</div>
-    </div>
-  </div>  
-</div>
-
-<div ng-controller='appController' id='container'>
-  <!-- <input type='text' ng-model='linkSearch' placeholder='Search Links'></input> -->
-  <!-- <button ng-click='searchVar="visits"'>Visits</button> -->
-  <div class='link' ng-repeat='link in links | orderBy:searchVar:true | filter:linkSearch'>
-    <img src='/redirect_icon.png'/>
-    <div class='info'>
-      <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
-      <div class='title'>{{link.title}}</div>
-      <div class='original'>{{link.url}}</div>
-      <a href='{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
-    </div>
-  </div>  
-</div>
-
 <div class="row">
   <div id="Teams" class="col-xs-8 col-md-8" ng-controller="myTeamsController">
     <h4>Choose Teams</h4>
@@ -36,13 +9,14 @@
     <div class="clear"></div>
   </div>
 
-  <div id="myTeams" class="col-xs-4 col-md-4" >
+  <div id="myTeams" class="col-xs-4 col-md-4" ng-controller='teamAppController'>
     <h4>Your Teams</h4>
     <ul class="list-unstyled">
-      <li class="teams" ng-repeat="team in userTeams" ng-click="removeTeam(team)">
-        <a href='#'>{{ team.teamName }}</a>
+      <li class="teams" ng-repeat="team in teams">
+        <a href='#'>{{ team.teamname }}</a>
       </li>
     </ul>
+    <button type="button" class="btn btn-default btn-sm" ng-click="remove()">Reset Teams</button>
   </div>
 </div>
 
