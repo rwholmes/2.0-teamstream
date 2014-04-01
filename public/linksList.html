@@ -12,7 +12,7 @@
   <div id="myTeams" class="col-xs-4 col-md-4" ng-controller='teamAppController'>
     <h4>Your Teams</h4>
     <ul class="list-unstyled">
-      <li class="teams" ng-repeat="team in teams">
+      <li class="teams" ng-repeat="team in teams track by $index">
         <a href='#'>{{ team.teamname }}</a>
       </li>
     </ul>
@@ -29,7 +29,7 @@
   </ul>
 </div>
 
-<h4>Scores</h4>
+<!-- <h4>Scores</h4>
 <div id="scores" class="row" ng-controller="myScoresController">
   <div class="score-box col-xs-3 col-md-3" ng-repeat="team in userTeams">
     <table class="table table-striped table-condensed">
@@ -55,7 +55,7 @@
     </tr>
     </table>
   </div>
-</div>
+</div> -->
 
 
 <h4>Upcoming Matches</h4>
